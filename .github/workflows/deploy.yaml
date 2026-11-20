@@ -2,6 +2,8 @@ name: Deploy
 
 on:
   push:
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -12,7 +14,7 @@ jobs:
 
       - name: Generate
         working-directory: ui
-        run: npm i && NUXT_APP_BASE_URL=/unsafety-propagation-graph/ npm run generate
+        run: npm i && NUXT_APP_BASE_URL=/AuditUnitVisualizer/ npm run generate
 
       - name: Upload static files as artifact
         uses: actions/upload-pages-artifact@v3
